@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.TrieSET;
 
 public class BoggleSolver
@@ -7,10 +8,11 @@ public class BoggleSolver
 	// (You can assume each word in the dictionary contains only the uppercase
 	// letters A through Z.)
 	TrieSET words;
+
 	public BoggleSolver(String[] dictionary)
 	{
 		words = new TrieSET();
-		for(String s : dictionary)
+		for (String s : dictionary)
 		{
 			words.add(s);
 		}
@@ -20,7 +22,8 @@ public class BoggleSolver
 	// Iterable.
 	public Iterable<String> getAllValidWords(BoggleBoard board)
 	{
-		
+		Queue<String> que = new Queue<String>();
+		return que;
 	}
 
 	// Returns the score of the given word if it is in the dictionary, zero
@@ -29,6 +32,20 @@ public class BoggleSolver
 	// Z.)
 	public int scoreOf(String word)
 	{
-		
+		if (!words.contains(word))
+			return 0;
+
+		if (word.length() <= 2)
+			return 0;
+		else if (word.length() <= 4)
+			return 1;
+		else if (word.length() <= 5)
+			return 2;
+		else if (word.length() <= 6)
+			return 3;
+		else if (word.length() <= 7)
+			return 5;
+		else
+			return 11;
 	}
 }
